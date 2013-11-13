@@ -49,17 +49,17 @@ namespace Poco {
 	std::string Error::getMessage(DWORD errorCode)
 	{
 		std::string errMsg;
-		DWORD dwFlg = FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS;
+		DWORD dwFlg = FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS;
+		const DWORD size = 1024;
 	#if defined(POCO_WIN32_UTF8) && !defined(POCO_NO_WSTRING)
-		LPWSTR lpMsgBuf = 0;
-		if (FormatMessageW(dwFlg, 0, errorCode, 0, (LPWSTR) & lpMsgBuf, 0, NULL))
+		WCHAR lpMsgBuf[size];
+		if (FormatMessageW(dwFlg, 0, errorCode, 0, lpMsgBuf, size, NULL))
 			UnicodeConverter::toUTF8(lpMsgBuf, errMsg);
 	#else
-		LPTSTR lpMsgBuf = 0;
-		if (FormatMessageA(dwFlg, 0, errorCode, 0, (LPTSTR) & lpMsgBuf, 0, NULL))
+		CHAR lpMsgBuf[1024];
+		if (FormatMessageA(dwFlg, 0, errorCode, 0, lpMsgBuf, size, NULL))
 			errMsg = lpMsgBuf;
 	#endif
-		LocalFree(lpMsgBuf);
 		return errMsg;
 	}
 

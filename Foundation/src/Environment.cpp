@@ -49,6 +49,8 @@
 #elif defined(POCO_OS_FAMILY_WINDOWS) && defined(POCO_WIN32_UTF8)
 #if defined(_WIN32_WCE)
 #include "Environment_WINCE.cpp"
+#elif defined(WINAPI_FAMILY_PC_APP)
+#include "Environment_WINRT.cpp"
 #else
 #include "Environment_WIN32U.cpp"
 #endif

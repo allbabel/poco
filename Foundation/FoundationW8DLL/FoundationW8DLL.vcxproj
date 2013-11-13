@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5dee4deb-2695-4a80-b46e-104bacdb5090}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectName>FoundationW8DLL</ProjectName>
+    <RootNamespace>FoundationW8DLL</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>true</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <ApplicationTypeRevision>8.1</ApplicationTypeRevision>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <GenerateManifest>false</GenerateManifest>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <GenerateManifest>false</GenerateManifest>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>true</CompileAsWinRT>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;Foundation_EXPORTS;PCRE_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../include;$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|arm'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|arm'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Poco\AbstractCache.h" />
+    <ClInclude Include="..\include\Poco\AbstractDelegate.h" />
+    <ClInclude Include="..\include\Poco\AbstractEvent.h" />
+    <ClInclude Include="..\include\Poco\AbstractPriorityDelegate.h" />
+    <ClInclude Include="..\include\Poco\AbstractStrategy.h" />
+    <ClInclude Include="..\include\Poco\AccessExpirationDecorator.h" />
+    <ClInclude Include="..\include\Poco\AccessExpireCache.h" />
+    <ClInclude Include="..\include\Poco\AccessExpireLRUCache.h" />
+    <ClInclude Include="..\include\Poco\AccessExpireStrategy.h" />
+    <ClInclude Include="..\include\Poco\Alignment.h" />
+    <ClInclude Include="..\include\Poco\Any.h" />
+    <ClInclude Include="..\include\Poco\ArchiveStrategy.h" />
+    <ClInclude Include="..\include\Poco\Array.h" />
+    <ClInclude Include="..\include\Poco\Ascii.h" />
+    <ClInclude Include="..\include\Poco\AsyncChannel.h" />
+    <ClInclude Include="..\include\Poco\AtomicCounter.h" />
+    <ClInclude Include="..\include\Poco\AutoPtr.h" />
+    <ClInclude Include="..\include\Poco\AutoReleasePool.h" />
+    <ClInclude Include="..\include\Poco\BasicEvent.h" />
+    <ClInclude Include="..\include\Poco\Buffer.h" />
+    <ClInclude Include="..\include\Poco\Bugcheck.h" />
+    <ClInclude Include="..\include\Poco\ByteOrder.h" />
+    <ClInclude Include="..\include\Poco\Channel.h" />
+    <ClInclude Include="..\include\Poco\Checksum.h" />
+    <ClInclude Include="..\include\Poco\Config.h" />
+    <ClInclude Include="..\include\Poco\Configurable.h" />
+    <ClInclude Include="..\include\Poco\ConsoleChannel.h" />
+    <ClInclude Include="..\include\Poco\DateTime.h" />
+    <ClInclude Include="..\include\Poco\DateTimeFormat.h" />
+    <ClInclude Include="..\include\Poco\DateTimeFormatter.h" />
+    <ClInclude Include="..\include\Poco\DateTimeParser.h" />
+    <ClInclude Include="..\include\Poco\Debugger.h" />
+    <ClInclude Include="..\include\Poco\DefaultStrategy.h" />
+    <ClInclude Include="..\include\Poco\Delegate.h" />
+    <ClInclude Include="..\include\Poco\DynamicAny.h" />
+    <ClInclude Include="..\include\Poco\DynamicAnyHolder.h" />
+    <ClInclude Include="..\include\Poco\DynamicFactory.h" />
+    <ClInclude Include="..\include\Poco\Dynamic\Pair.h" />
+    <ClInclude Include="..\include\Poco\Dynamic\Struct.h" />
+    <ClInclude Include="..\include\Poco\Dynamic\Var.h" />
+    <ClInclude Include="..\include\Poco\Dynamic\VarHolder.h" />
+    <ClInclude Include="..\include\Poco\Dynamic\VarIterator.h" />
+    <ClInclude Include="..\include\Poco\Environment.h" />
+    <ClInclude Include="..\include\Poco\Environment_UNIX.h" />
+    <ClInclude Include="..\include\Poco\Environment_VMS.h" />
+    <ClInclude Include="..\include\Poco\Environment_WIN32.h" />
+    <ClInclude Include="..\include\Poco\Environment_WIN32U.h" />
+    <ClInclude Include="..\include\Poco\Error.h" />
+    <ClInclude Include="..\include\Poco\EventArgs.h" />
+    <ClInclude Include="..\include\Poco\EventLogChannel.h" />
+    <ClInclude Include="..\include\Poco\Exception.h" />
+    <ClInclude Include="..\include\Poco\ExpirationDecorator.h" />
+    <ClInclude Include="..\include\Poco\Expire.h" />
+    <ClInclude Include="..\include\Poco\ExpireCache.h" />
+    <ClInclude Include="..\include\Poco\ExpireLRUCache.h" />
+    <ClInclude Include="..\include\Poco\ExpireStrategy.h" />
+    <ClInclude Include="..\include\Poco\FIFOBuffer.h" />
+    <ClInclude Include="..\include\Poco\FIFOEvent.h" />
+    <ClInclude Include="..\include\Poco\FIFOStrategy.h" />
+    <ClInclude Include="..\include\Poco\FileChannel.h" />
+    <ClInclude Include="..\include\Poco\Format.h" />
+    <ClInclude Include="..\include\Poco\Formatter.h" />
+    <ClInclude Include="..\include\Poco\FormattingChannel.h" />
+    <ClInclude Include="..\include\Poco\Foundation.h" />
+    <ClInclude Include="..\include\Poco\FPEnvironment.h" />
+    <ClInclude Include="..\include\Poco\FPEnvironment_C99.h" />
+    <ClInclude Include="..\include\Poco\FPEnvironment_DEC.h" />
+    <ClInclude Include="..\include\Poco\FPEnvironment_DUMMY.h" />
+    <ClInclude Include="..\include\Poco\FPEnvironment_SUN.h" />
+    <ClInclude Include="..\include\Poco\FPEnvironment_WIN32.h" />
+    <ClInclude Include="..\include\Poco\FunctionDelegate.h" />
+    <ClInclude Include="..\include\Poco\FunctionPriorityDelegate.h" />
+    <ClInclude Include="..\include\Poco\Hash.h" />
+    <ClInclude Include="..\include\Poco\HashFunction.h" />
+    <ClInclude Include="..\include\Poco\HashMap.h" />
+    <ClInclude Include="..\include\Poco\HashSet.h" />
+    <ClInclude Include="..\include\Poco\HashStatistic.h" />
+    <ClInclude Include="..\include\Poco\HashTable.h" />
+    <ClInclude Include="..\include\Poco\Instantiator.h" />
+    <ClInclude Include="..\include\Poco\KeyValueArgs.h" />
+    <ClInclude Include="..\include\Poco\Latin2Encoding.h" />
+    <ClInclude Include="..\include\Poco\LinearHashTable.h" />
+    <ClInclude Include="..\include\Poco\ListMap.h" />
+    <ClInclude Include="..\include\Poco\LocalDateTime.h" />
+    <ClInclude Include="..\include\Poco\LogFile.h" />
+    <ClInclude Include="..\include\Poco\LogFile_STD.h" />
+    <ClInclude Include="..\include\Poco\LogFile_VMS.h" />
+    <ClInclude Include="..\include\Poco\LogFile_WIN32.h" />
+    <ClInclude Include="..\include\Poco\LogFile_WIN32U.h" />
+    <ClInclude Include="..\include\Poco\Logger.h" />
+    <ClInclude Include="..\include\Poco\LoggingFactory.h" />
+    <ClInclude Include="..\include\Poco\LoggingRegistry.h" />
+    <ClInclude Include="..\include\Poco\LogStream.h" />
+    <ClInclude Include="..\include\Poco\LRUCache.h" />
+    <ClInclude Include="..\include\Poco\LRUStrategy.h" />
+    <ClInclude Include="..\include\Poco\MemoryPool.h" />
+    <ClInclude Include="..\include\Poco\Message.h" />
+    <ClInclude Include="..\include\Poco\MetaProgramming.h" />
+    <ClInclude Include="..\include\Poco\NamedTuple.h" />
+    <ClInclude Include="..\include\Poco\NestedDiagnosticContext.h" />
+    <ClInclude Include="..\include\Poco\NotificationStrategy.h" />
+    <ClInclude Include="..\include\Poco\Nullable.h" />
+    <ClInclude Include="..\include\Poco\NullChannel.h" />
+    <ClInclude Include="..\include\Poco\NumberFormatter.h" />
+    <ClInclude Include="..\include\Poco\NumberParser.h" />
+    <ClInclude Include="..\include\Poco\NumericString.h" />
+    <ClInclude Include="..\include\Poco\ObjectPool.h" />
+    <ClInclude Include="..\include\Poco\OpcomChannel.h" />
+    <ClInclude Include="..\include\Poco\Optional.h" />
+    <ClInclude Include="..\include\Poco\PatternFormatter.h" />
+    <ClInclude Include="..\include\Poco\Platform.h" />
+    <ClInclude Include="..\include\Poco\Platform_POSIX.h" />
+    <ClInclude Include="..\include\Poco\Platform_VMS.h" />
+    <ClInclude Include="..\include\Poco\Platform_WIN32.h" />
+    <ClInclude Include="..\include\Poco\Poco.h" />
+    <ClInclude Include="..\include\Poco\PriorityDelegate.h" />
+    <ClInclude Include="..\include\Poco\PriorityEvent.h" />
+    <ClInclude Include="..\include\Poco\PriorityExpire.h" />
+    <ClInclude Include="..\include\Poco\PriorityStrategy.h" />
+    <ClInclude Include="..\include\Poco\PurgeStrategy.h" />
+    <ClInclude Include="..\include\Poco\RefCountedObject.h" />
+    <ClInclude Include="..\include\Poco\RotateStrategy.h" />
+    <ClInclude Include="..\include\Poco\SharedPtr.h" />
+    <ClInclude Include="..\include\Poco\SimpleFileChannel.h" />
+    <ClInclude Include="..\include\Poco\SimpleHashTable.h" />
+    <ClInclude Include="..\include\Poco\SingletonHolder.h" />
+    <ClInclude Include="..\include\Poco\SplitterChannel.h" />
+    <ClInclude Include="..\include\Poco\Stopwatch.h" />
+    <ClInclude Include="..\include\Poco\StrategyCollection.h" />
+    <ClInclude Include="..\include\Poco\StreamChannel.h" />
+    <ClInclude Include="..\include\Poco\String.h" />
+    <ClInclude Include="..\include\Poco\StringTokenizer.h" />
+    <ClInclude Include="..\include\Poco\SyslogChannel.h" />
+    <ClInclude Include="..\include\Poco\Timespan.h" />
+    <ClInclude Include="..\include\Poco\Timestamp.h" />
+    <ClInclude Include="..\include\Poco\Timezone.h" />
+    <ClInclude Include="..\include\Poco\Tuple.h" />
+    <ClInclude Include="..\include\Poco\TypeList.h" />
+    <ClInclude Include="..\include\Poco\Types.h" />
+    <ClInclude Include="..\include\Poco\UniqueAccessExpireCache.h" />
+    <ClInclude Include="..\include\Poco\UniqueAccessExpireLRUCache.h" />
+    <ClInclude Include="..\include\Poco\UniqueAccessExpireStrategy.h" />
+    <ClInclude Include="..\include\Poco\UniqueExpireCache.h" />
+    <ClInclude Include="..\include\Poco\UniqueExpireLRUCache.h" />
+    <ClInclude Include="..\include\Poco\UniqueExpireStrategy.h" />
+    <ClInclude Include="..\include\Poco\UnWindows.h" />
+    <ClInclude Include="..\include\Poco\ValidArgs.h" />
+    <ClInclude Include="..\include\Poco\Version.h" />
+    <ClInclude Include="..\include\Poco\Void.h" />
+    <ClInclude Include="..\include\Poco\WindowsConsoleChannel.h" />
+    <ClInclude Include="..\src\pocomsg.h" />
+    <ClInclude Include="FoundationW8DLL.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\ArchiveStrategy.cpp" />
+    <ClCompile Include="..\src\Ascii.cpp" />
+    <ClCompile Include="..\src\AsyncChannel.cpp" />
+    <ClCompile Include="..\src\AtomicCounter.cpp" />
+    <ClCompile Include="..\src\Bugcheck.cpp" />
+    <ClCompile Include="..\src\ByteOrder.cpp" />
+    <ClCompile Include="..\src\Channel.cpp" />
+    <ClCompile Include="..\src\Checksum.cpp" />
+    <ClCompile Include="..\src\Configurable.cpp" />
+    <ClCompile Include="..\src\ConsoleChannel.cpp" />
+    <ClCompile Include="..\src\DateTime.cpp" />
+    <ClCompile Include="..\src\DateTimeFormat.cpp" />
+    <ClCompile Include="..\src\DateTimeFormatter.cpp" />
+    <ClCompile Include="..\src\DateTimeParser.cpp" />
+    <ClCompile Include="..\src\Debugger.cpp" />
+    <ClCompile Include="..\src\Environment.cpp" />
+    <ClCompile Include="..\src\Environment_UNIX.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Environment_VMS.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Environment_WIN32.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Environment_WIN32U.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Error.cpp" />
+    <ClCompile Include="..\src\EventArgs.cpp" />
+    <ClCompile Include="..\src\EventLogChannel.cpp" />
+    <ClCompile Include="..\src\Exception.cpp" />
+    <ClCompile Include="..\src\FileChannel.cpp" />
+    <ClCompile Include="..\src\Format.cpp" />
+    <ClCompile Include="..\src\Formatter.cpp" />
+    <ClCompile Include="..\src\FormattingChannel.cpp" />
+    <ClCompile Include="..\src\FPEnvironment.cpp" />
+    <ClCompile Include="..\src\FPEnvironment_C99.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\FPEnvironment_DEC.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\FPEnvironment_DUMMY.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\FPEnvironment_SUN.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\FPEnvironment_WIN32.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Hash.cpp" />
+    <ClCompile Include="..\src\HashStatistic.cpp" />
+    <ClCompile Include="..\src\LocalDateTime.cpp" />
+    <ClCompile Include="..\src\LogFile.cpp" />
+    <ClCompile Include="..\src\LogFile_STD.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\LogFile_VMS.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\LogFile_WIN32.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\LogFile_WIN32U.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Logger.cpp" />
+    <ClCompile Include="..\src\LoggingFactory.cpp" />
+    <ClCompile Include="..\src\LoggingRegistry.cpp" />
+    <ClCompile Include="..\src\LogStream.cpp" />
+    <ClCompile Include="..\src\MemoryPool.cpp" />
+    <ClCompile Include="..\src\Message.cpp" />
+    <ClCompile Include="..\src\NestedDiagnosticContext.cpp" />
+    <ClCompile Include="..\src\NullChannel.cpp" />
+    <ClCompile Include="..\src\NumberFormatter.cpp" />
+    <ClCompile Include="..\src\NumberParser.cpp" />
+    <ClCompile Include="..\src\NumericString.cpp" />
+    <ClCompile Include="..\src\OpcomChannel.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\PatternFormatter.cpp" />
+    <ClCompile Include="..\src\PurgeStrategy.cpp" />
+    <ClCompile Include="..\src\RefCountedObject.cpp" />
+    <ClCompile Include="..\src\RotateStrategy.cpp" />
+    <ClCompile Include="..\src\SimpleFileChannel.cpp" />
+    <ClCompile Include="..\src\SplitterChannel.cpp" />
+    <ClCompile Include="..\src\Stopwatch.cpp" />
+    <ClCompile Include="..\src\StreamChannel.cpp" />
+    <ClCompile Include="..\src\String.cpp" />
+    <ClCompile Include="..\src\StringTokenizer.cpp" />
+    <ClCompile Include="..\src\SyslogChannel.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Timespan.cpp" />
+    <ClCompile Include="..\src\Timestamp.cpp" />
+    <ClCompile Include="..\src\Timezone.cpp" />
+    <ClCompile Include="..\src\Timezone_UNIX.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Timezone_WIN32.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Var.cpp" />
+    <ClCompile Include="..\src\VarHolder.cpp" />
+    <ClCompile Include="..\src\VarIterator.cpp" />
+    <ClCompile Include="..\src\Void.cpp" />
+    <ClCompile Include="..\src\WindowsConsoleChannel.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="FoundationW8DLL.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\pocomsg.mc">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\src\pocomsg.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

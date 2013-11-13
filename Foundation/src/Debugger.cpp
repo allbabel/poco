@@ -133,7 +133,9 @@ void Debugger::enter()
 	#if defined(POCO_OS_FAMILY_WINDOWS)
 	if (isAvailable())
 	{
+#ifndef WINAPI_FAMILY_PC_APP
 		DebugBreak();
+#endif
 	}
 	#elif defined(POCO_VXWORKS)
 	{
