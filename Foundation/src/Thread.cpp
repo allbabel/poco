@@ -47,7 +47,7 @@
 #else
 #if defined(WINAPI_FAMILY_PC_APP)
 #include "Thread_WINRT.cpp"
-#else
+#else 
 #include "Thread_WIN32.cpp"
 #endif
 #endif

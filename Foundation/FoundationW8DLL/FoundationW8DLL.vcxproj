@@ -194,6 +194,12 @@
     <ClInclude Include="..\include\Poco\AccessExpireCache.h" />
     <ClInclude Include="..\include\Poco\AccessExpireLRUCache.h" />
     <ClInclude Include="..\include\Poco\AccessExpireStrategy.h" />
+    <ClInclude Include="..\include\Poco\ActiveDispatcher.h" />
+    <ClInclude Include="..\include\Poco\ActiveMethod.h" />
+    <ClInclude Include="..\include\Poco\ActiveResult.h" />
+    <ClInclude Include="..\include\Poco\ActiveRunnable.h" />
+    <ClInclude Include="..\include\Poco\ActiveStarter.h" />
+    <ClInclude Include="..\include\Poco\Activity.h" />
     <ClInclude Include="..\include\Poco\Alignment.h" />
     <ClInclude Include="..\include\Poco\Any.h" />
     <ClInclude Include="..\include\Poco\ArchiveStrategy.h" />
@@ -209,6 +215,7 @@
     <ClInclude Include="..\include\Poco\ByteOrder.h" />
     <ClInclude Include="..\include\Poco\Channel.h" />
     <ClInclude Include="..\include\Poco\Checksum.h" />
+    <ClInclude Include="..\include\Poco\Condition.h" />
     <ClInclude Include="..\include\Poco\Config.h" />
     <ClInclude Include="..\include\Poco\Configurable.h" />
     <ClInclude Include="..\include\Poco\ConsoleChannel.h" />
@@ -233,8 +240,13 @@
     <ClInclude Include="..\include\Poco\Environment_WIN32.h" />
     <ClInclude Include="..\include\Poco\Environment_WIN32U.h" />
     <ClInclude Include="..\include\Poco\Error.h" />
+    <ClInclude Include="..\include\Poco\ErrorHandler.h" />
+    <ClInclude Include="..\include\Poco\Event.h" />
     <ClInclude Include="..\include\Poco\EventArgs.h" />
     <ClInclude Include="..\include\Poco\EventLogChannel.h" />
+    <ClInclude Include="..\include\Poco\Event_POSIX.h" />
+    <ClInclude Include="..\include\Poco\Event_WIN32.h" />
+    <ClInclude Include="..\include\Poco\Event_WINRT.h" />
     <ClInclude Include="..\include\Poco\Exception.h" />
     <ClInclude Include="..\include\Poco\ExpirationDecorator.h" />
     <ClInclude Include="..\include\Poco\Expire.h" />
@@ -274,6 +286,7 @@
     <ClInclude Include="..\include\Poco\LogFile_VMS.h" />
     <ClInclude Include="..\include\Poco\LogFile_WIN32.h" />
     <ClInclude Include="..\include\Poco\LogFile_WIN32U.h" />
+    <ClInclude Include="..\include\Poco\LogFile_WINRT.h" />
     <ClInclude Include="..\include\Poco\Logger.h" />
     <ClInclude Include="..\include\Poco\LoggingFactory.h" />
     <ClInclude Include="..\include\Poco\LoggingRegistry.h" />
@@ -283,6 +296,10 @@
     <ClInclude Include="..\include\Poco\MemoryPool.h" />
     <ClInclude Include="..\include\Poco\Message.h" />
     <ClInclude Include="..\include\Poco\MetaProgramming.h" />
+    <ClInclude Include="..\include\Poco\Mutex.h" />
+    <ClInclude Include="..\include\Poco\Mutex_POSIX.h" />
+    <ClInclude Include="..\include\Poco\Mutex_WIN32.h" />
+    <ClInclude Include="..\include\Poco\Mutex_WINRT.h" />
     <ClInclude Include="..\include\Poco\NamedTuple.h" />
     <ClInclude Include="..\include\Poco\NestedDiagnosticContext.h" />
     <ClInclude Include="..\include\Poco\NotificationStrategy.h" />
@@ -307,7 +324,20 @@
     <ClInclude Include="..\include\Poco\PurgeStrategy.h" />
     <ClInclude Include="..\include\Poco\RefCountedObject.h" />
     <ClInclude Include="..\include\Poco\RotateStrategy.h" />
+    <ClInclude Include="..\include\Poco\Runnable.h" />
+    <ClInclude Include="..\include\Poco\RunnableAdapter.h" />
+    <ClInclude Include="..\include\Poco\RWLock.h" />
+    <ClInclude Include="..\include\Poco\RWLock_POSIX.h" />
+    <ClInclude Include="..\include\Poco\RWLock_WIN32.h" />
+    <ClInclude Include="..\include\Poco\RWLock_WINRT.h" />
+    <ClInclude Include="..\include\Poco\ScopedLock.h" />
+    <ClInclude Include="..\include\Poco\ScopedUnlock.h" />
+    <ClInclude Include="..\include\Poco\Semaphore.h" />
+    <ClInclude Include="..\include\Poco\Semaphore_POSIX.h" />
+    <ClInclude Include="..\include\Poco\Semaphore_WIN32.h" />
+    <ClInclude Include="..\include\Poco\Semaphore_WINRT.h" />
     <ClInclude Include="..\include\Poco\SharedPtr.h" />
+    <ClInclude Include="..\include\Poco\SignalHandler.h" />
     <ClInclude Include="..\include\Poco\SimpleFileChannel.h" />
     <ClInclude Include="..\include\Poco\SimpleHashTable.h" />
     <ClInclude Include="..\include\Poco\SingletonHolder.h" />
@@ -317,7 +347,16 @@
     <ClInclude Include="..\include\Poco\StreamChannel.h" />
     <ClInclude Include="..\include\Poco\String.h" />
     <ClInclude Include="..\include\Poco\StringTokenizer.h" />
+    <ClInclude Include="..\include\Poco\SynchronizedObject.h" />
     <ClInclude Include="..\include\Poco\SyslogChannel.h" />
+    <ClInclude Include="..\include\Poco\Thread.h" />
+    <ClInclude Include="..\include\Poco\ThreadLocal.h" />
+    <ClInclude Include="..\include\Poco\ThreadPool.h" />
+    <ClInclude Include="..\include\Poco\ThreadTarget.h" />
+    <ClInclude Include="..\include\Poco\Thread_POSIX.h" />
+    <ClInclude Include="..\include\Poco\Thread_WIN32.h" />
+    <ClInclude Include="..\include\Poco\Thread_WINRT.h" />
+    <ClInclude Include="..\include\Poco\Timer.h" />
     <ClInclude Include="..\include\Poco\Timespan.h" />
     <ClInclude Include="..\include\Poco\Timestamp.h" />
     <ClInclude Include="..\include\Poco\Timezone.h" />
@@ -341,6 +380,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\ActiveDispatcher.cpp" />
     <ClCompile Include="..\src\ArchiveStrategy.cpp" />
     <ClCompile Include="..\src\Ascii.cpp" />
     <ClCompile Include="..\src\AsyncChannel.cpp" />
@@ -349,6 +389,7 @@
     <ClCompile Include="..\src\ByteOrder.cpp" />
     <ClCompile Include="..\src\Channel.cpp" />
     <ClCompile Include="..\src\Checksum.cpp" />
+    <ClCompile Include="..\src\Condition.cpp" />
     <ClCompile Include="..\src\Configurable.cpp" />
     <ClCompile Include="..\src\ConsoleChannel.cpp" />
     <ClCompile Include="..\src\DateTime.cpp" />
@@ -370,8 +411,17 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\src\Error.cpp" />
+    <ClCompile Include="..\src\ErrorHandler.cpp" />
+    <ClCompile Include="..\src\Event.cpp" />
     <ClCompile Include="..\src\EventArgs.cpp" />
     <ClCompile Include="..\src\EventLogChannel.cpp" />
+    <ClCompile Include="..\src\Event_POSIX.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Event_WIN32.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Event_WINRT.cpp" />
     <ClCompile Include="..\src\Exception.cpp" />
     <ClCompile Include="..\src\FileChannel.cpp" />
     <ClCompile Include="..\src\Format.cpp" />
@@ -409,12 +459,21 @@
     <ClCompile Include="..\src\LogFile_WIN32U.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\src\LogFile_WINRT.cpp" />
     <ClCompile Include="..\src\Logger.cpp" />
     <ClCompile Include="..\src\LoggingFactory.cpp" />
     <ClCompile Include="..\src\LoggingRegistry.cpp" />
     <ClCompile Include="..\src\LogStream.cpp" />
     <ClCompile Include="..\src\MemoryPool.cpp" />
     <ClCompile Include="..\src\Message.cpp" />
+    <ClCompile Include="..\src\Mutex.cpp" />
+    <ClCompile Include="..\src\Mutex_POSIX.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Mutex_WIN32.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Mutex_WINRT.cpp" />
     <ClCompile Include="..\src\NestedDiagnosticContext.cpp" />
     <ClCompile Include="..\src\NullChannel.cpp" />
     <ClCompile Include="..\src\NumberFormatter.cpp" />
@@ -427,15 +486,46 @@
     <ClCompile Include="..\src\PurgeStrategy.cpp" />
     <ClCompile Include="..\src\RefCountedObject.cpp" />
     <ClCompile Include="..\src\RotateStrategy.cpp" />
+    <ClCompile Include="..\src\Runnable.cpp" />
+    <ClCompile Include="..\src\RWLock.cpp" />
+    <ClCompile Include="..\src\RWLock_POSIX.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\RWLock_WIN32.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\RWLock_WINRT.cpp" />
+    <ClCompile Include="..\src\Semaphore.cpp" />
+    <ClCompile Include="..\src\Semaphore_POSIX.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Semaphore_WIN32.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Semaphore_WINRT.cpp" />
+    <ClCompile Include="..\src\SignalHandler.cpp" />
     <ClCompile Include="..\src\SimpleFileChannel.cpp" />
     <ClCompile Include="..\src\SplitterChannel.cpp" />
     <ClCompile Include="..\src\Stopwatch.cpp" />
     <ClCompile Include="..\src\StreamChannel.cpp" />
     <ClCompile Include="..\src\String.cpp" />
     <ClCompile Include="..\src\StringTokenizer.cpp" />
+    <ClCompile Include="..\src\SynchronizedObject.cpp" />
     <ClCompile Include="..\src\SyslogChannel.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\src\Thread.cpp" />
+    <ClCompile Include="..\src\ThreadLocal.cpp" />
+    <ClCompile Include="..\src\ThreadPool.cpp" />
+    <ClCompile Include="..\src\ThreadTarget.cpp" />
+    <ClCompile Include="..\src\Thread_POSIX.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Thread_WIN32.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Thread_WINRT.cpp" />
+    <ClCompile Include="..\src\Timer.cpp" />
     <ClCompile Include="..\src\Timespan.cpp" />
     <ClCompile Include="..\src\Timestamp.cpp" />
     <ClCompile Include="..\src\Timezone.cpp" />
