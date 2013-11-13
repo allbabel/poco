@@ -1,13 +1,15 @@
 //
-// Mutex.cpp
+// LogFile_WIN32U.h
 //
-// $Id: //poco/1.4/Foundation/src/Mutex.cpp#2 $
+// $Id: //poco/1.4/Foundation/include/Poco/LogFile_WIN32U.h#1 $
 //
 // Library: Foundation
-// Package: Threading
-// Module:  Mutex
+// Package: Logging
+// Module:  LogFile
 //
-// Copyright (c) 2004-2008, Applied Informatics Software Engineering GmbH.
+// Definition of the LogFileImpl class using the Windows file APIs.
+//
+// Copyright (c) 2004-2006, Applied Informatics Software Engineering GmbH.
 // and Contributors.
 //
 // Permission is hereby granted, free of charge, to any person or organization
@@ -34,47 +36,41 @@
 //
 
 
-#include "Poco/Mutex.h"
+#ifndef Foundation_LogFile_WIN32U_INCLUDED
+#define Foundation_LogFile_WIN32U_INCLUDED
 
 
-#if defined(POCO_OS_FAMILY_WINDOWS)
-#if defined(_WIN32_WCE)
-#include "Mutex_WINCE.cpp"
-#else
-#if defined(WINAPI_FAMILY_PC_APP)
-#include "Mutex_WINRT.cpp"
-#else
-#include "Mutex_WIN32.cpp"
-#endif
-#endif
-#elif defined(POCO_VXWORKS)
-#include "Mutex_VX.cpp"
-#else
-#include "Mutex_POSIX.cpp"
-#endif
+#include "Poco/Foundation.h"
+#include "Poco/Timestamp.h"
+#include "Poco/UnWindows.h"
 
 
 namespace Poco {
 
 
-Mutex::Mutex()
+class Foundation_API LogFileImpl
+	/// The implementation of LogFile for Windows.
+	/// The native filesystem APIs are used for
+	/// total control over locking behavior.
 {
-}
+public:
+	LogFileImpl(const std::string& path);
+	~LogFileImpl();
+	void writeImpl(const std::string& text, bool flush);
+	UInt64 sizeImpl() const;
+	Timestamp creationDateImpl() const;
+	const std::string& pathImpl() const;
 
+private:
+	void createFile();
 
-Mutex::~Mutex()
-{
-}
-
-
-FastMutex::FastMutex()
-{
-}
-
-
-FastMutex::~FastMutex()
-{
-}
+	std::string _path;
+	HANDLE      _hFile;
+	Timestamp   _creationDate;
+};
 
 
 } // namespace Poco
+
+
+#endif // Foundation_LogFile_WIN32U_INCLUDED

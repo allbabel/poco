@@ -134,13 +134,12 @@ std::string EnvironmentImpl::osArchitectureImpl()
 
 std::string EnvironmentImpl::nodeNameImpl()
 {
-    HKEY hKey;
+    /*HKEY hKey;
 	DWORD dwDisposition;
-    /*if (RegCreateKeyExW(HKEY_LOCAL_MACHINE, L"\\Ident", 0, 0, 0, 0, 0, &hKey, &dwDisposition) != ERROR_SUCCESS) 
+    if (RegCreateKeyExW(HKEY_LOCAL_MACHINE, L"\\Ident", 0, 0, 0, 0, 0, &hKey, &dwDisposition) != ERROR_SUCCESS) 
 		throw SystemException("Cannot get node name", "registry key not found");
-		*/
 	std::string value;
-    /*DWORD dwType;
+    DWORD dwType;
     BYTE bData[1026];
     DWORD dwData = sizeof(bData);
 	if (RegQueryValueExW(hKey, L"Name", 0, &dwType, bData, &dwData) == ERROR_SUCCESS)
@@ -161,8 +160,10 @@ std::string EnvironmentImpl::nodeNameImpl()
 	    RegCloseKey(hKey);
 		throw SystemException("Cannot get node name", "registry value not found");
 	}
-    RegCloseKey(hKey);*/
-	return value;
+    RegCloseKey(hKey);
+	return value;*/
+
+	return "";
 }
 
 

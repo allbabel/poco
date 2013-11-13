@@ -38,7 +38,11 @@
 
 
 #if defined(POCO_OS_FAMILY_WINDOWS)
+#if defined(WINAPI_FAMILY_PC_APP)
+#include "Event_WINRT.cpp"
+#else
 #include "Event_WIN32.cpp"
+#endif
 #elif defined(POCO_VXWORKS)
 #include "Event_VX.cpp"
 #else

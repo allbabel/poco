@@ -1,13 +1,15 @@
 //
-// Mutex.cpp
+// Event_WIN32.h
 //
-// $Id: //poco/1.4/Foundation/src/Mutex.cpp#2 $
+// $Id: //poco/1.4/Foundation/include/Poco/Event_WIN32.h#1 $
 //
 // Library: Foundation
 // Package: Threading
-// Module:  Mutex
+// Module:  Event
 //
-// Copyright (c) 2004-2008, Applied Informatics Software Engineering GmbH.
+// Definition of the EventImpl class for WIN32.
+//
+// Copyright (c) 2004-2006, Applied Informatics Software Engineering GmbH.
 // and Contributors.
 //
 // Permission is hereby granted, free of charge, to any person or organization
@@ -34,47 +36,55 @@
 //
 
 
-#include "Poco/Mutex.h"
+#ifndef Foundation_Event_WIN32_INCLUDED
+#define Foundation_Event_WIN32_INCLUDED
 
 
-#if defined(POCO_OS_FAMILY_WINDOWS)
-#if defined(_WIN32_WCE)
-#include "Mutex_WINCE.cpp"
-#else
-#if defined(WINAPI_FAMILY_PC_APP)
-#include "Mutex_WINRT.cpp"
-#else
-#include "Mutex_WIN32.cpp"
-#endif
-#endif
-#elif defined(POCO_VXWORKS)
-#include "Mutex_VX.cpp"
-#else
-#include "Mutex_POSIX.cpp"
-#endif
+#include "Poco/Foundation.h"
+#include "Poco/Exception.h"
+#include "Poco/UnWindows.h"
 
 
 namespace Poco {
 
 
-Mutex::Mutex()
+class Foundation_API EventImpl
 {
+protected:
+	EventImpl(bool autoReset);		
+	~EventImpl();
+	void setImpl();
+	void waitImpl();
+	bool waitImpl(long milliseconds);
+	void resetImpl();
+	
+private:
+	HANDLE _event;
+};
+
+
+//
+// inlines
+//
+inline void EventImpl::setImpl()
+{
+	if (!SetEvent(_event))
+	{
+		throw SystemException("cannot signal event");
+	}
 }
 
 
-Mutex::~Mutex()
+inline void EventImpl::resetImpl()
 {
-}
-
-
-FastMutex::FastMutex()
-{
-}
-
-
-FastMutex::~FastMutex()
-{
+	if (!ResetEvent(_event))
+	{
+		throw SystemException("cannot reset event");
+	}
 }
 
 
 } // namespace Poco
+
+
+#endif // Foundation_Event_WIN32_INCLUDED

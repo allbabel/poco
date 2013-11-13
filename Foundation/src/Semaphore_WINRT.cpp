@@ -1,13 +1,13 @@
 //
-// Mutex.cpp
+// Semaphore_WIN32.cpp
 //
-// $Id: //poco/1.4/Foundation/src/Mutex.cpp#2 $
+// $Id: //poco/1.4/Foundation/src/Semaphore_WIN32.cpp#1 $
 //
 // Library: Foundation
 // Package: Threading
-// Module:  Mutex
+// Module:  Semaphore
 //
-// Copyright (c) 2004-2008, Applied Informatics Software Engineering GmbH.
+// Copyright (c) 2004-2006, Applied Informatics Software Engineering GmbH.
 // and Contributors.
 //
 // Permission is hereby granted, free of charge, to any person or organization
@@ -34,46 +34,53 @@
 //
 
 
-#include "Poco/Mutex.h"
-
-
-#if defined(POCO_OS_FAMILY_WINDOWS)
-#if defined(_WIN32_WCE)
-#include "Mutex_WINCE.cpp"
-#else
-#if defined(WINAPI_FAMILY_PC_APP)
-#include "Mutex_WINRT.cpp"
-#else
-#include "Mutex_WIN32.cpp"
-#endif
-#endif
-#elif defined(POCO_VXWORKS)
-#include "Mutex_VX.cpp"
-#else
-#include "Mutex_POSIX.cpp"
-#endif
+#include "Poco/Semaphore_WINRT.h"
 
 
 namespace Poco {
 
 
-Mutex::Mutex()
+SemaphoreImpl::SemaphoreImpl(int n, int max)
 {
+	poco_assert (n >= 0 && max > 0 && n <= max);
+
+	_sema = CreateSemaphoreW(NULL, n, max, NULL);
+	if (!_sema)
+	{
+		throw SystemException("cannot create semaphore");
+	}
 }
 
 
-Mutex::~Mutex()
+SemaphoreImpl::~SemaphoreImpl()
 {
+	CloseHandle(_sema);
 }
 
 
-FastMutex::FastMutex()
+void SemaphoreImpl::waitImpl()
 {
+	switch (WaitForSingleObject(_sema, INFINITE))
+	{
+	case WAIT_OBJECT_0:
+		return;
+	default:
+		throw SystemException("wait for semaphore failed");
+	}
 }
 
 
-FastMutex::~FastMutex()
+bool SemaphoreImpl::waitImpl(long milliseconds)
 {
+	switch (WaitForSingleObject(_sema, milliseconds + 1))
+	{
+	case WAIT_TIMEOUT:
+		return false;
+	case WAIT_OBJECT_0:
+		return true;
+	default:
+		throw SystemException("wait for semaphore failed");		
+	}
 }
 
 

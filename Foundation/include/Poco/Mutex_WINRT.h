@@ -1,11 +1,13 @@
 //
-// Mutex.cpp
+// Mutex_WIN32.h
 //
-// $Id: //poco/1.4/Foundation/src/Mutex.cpp#2 $
+// $Id: //poco/1.4/Foundation/include/Poco/Mutex_WIN32.h#1 $
 //
 // Library: Foundation
 // Package: Threading
 // Module:  Mutex
+//
+// Definition of the MutexImpl and FastMutexImpl classes for WIN32.
 //
 // Copyright (c) 2004-2008, Applied Informatics Software Engineering GmbH.
 // and Contributors.
@@ -34,47 +36,72 @@
 //
 
 
-#include "Poco/Mutex.h"
+#ifndef Foundation_Mutex_WIN32_INCLUDED
+#define Foundation_Mutex_WIN32_INCLUDED
 
 
-#if defined(POCO_OS_FAMILY_WINDOWS)
-#if defined(_WIN32_WCE)
-#include "Mutex_WINCE.cpp"
-#else
-#if defined(WINAPI_FAMILY_PC_APP)
-#include "Mutex_WINRT.cpp"
-#else
-#include "Mutex_WIN32.cpp"
-#endif
-#endif
-#elif defined(POCO_VXWORKS)
-#include "Mutex_VX.cpp"
-#else
-#include "Mutex_POSIX.cpp"
-#endif
+#include "Poco/Foundation.h"
+#include "Poco/Exception.h"
+#include "Poco/UnWindows.h"
 
 
 namespace Poco {
 
 
-Mutex::Mutex()
+class Foundation_API MutexImpl
 {
+protected:
+	MutexImpl();
+	~MutexImpl();
+	void lockImpl();
+	bool tryLockImpl();
+	bool tryLockImpl(long milliseconds);
+	void unlockImpl();
+	
+private:
+	CRITICAL_SECTION _cs;
+};
+
+
+typedef MutexImpl FastMutexImpl;
+
+
+//
+// inlines
+//
+inline void MutexImpl::lockImpl()
+{
+	try
+	{
+		EnterCriticalSection(&_cs);
+	}
+	catch (...)
+	{
+		throw SystemException("cannot lock mutex");
+	}
 }
 
 
-Mutex::~Mutex()
+inline bool MutexImpl::tryLockImpl()
 {
+	try
+	{
+		return TryEnterCriticalSection(&_cs) != 0;
+	}
+	catch (...)
+	{
+	}
+	throw SystemException("cannot lock mutex");
 }
 
 
-FastMutex::FastMutex()
+inline void MutexImpl::unlockImpl()
 {
-}
-
-
-FastMutex::~FastMutex()
-{
+	LeaveCriticalSection(&_cs);
 }
 
 
 } // namespace Poco
+
+
+#endif // Foundation_Mutex_WIN32_INCLUDED

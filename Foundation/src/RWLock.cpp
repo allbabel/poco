@@ -41,7 +41,11 @@
 #if defined(_WIN32_WCE)
 #include "RWLock_WINCE.cpp"
 #else
+#if defined(WINAPI_FAMILY_PC_APP)
+#include "RWLock_WINRT.cpp"
+#else
 #include "RWLock_WIN32.cpp"
+#endif
 #endif
 #elif defined(POCO_ANDROID)
 #include "RWLock_Android.cpp"

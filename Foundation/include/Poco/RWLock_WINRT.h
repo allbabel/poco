@@ -1,13 +1,15 @@
 //
-// Mutex.cpp
+// RWLock_WIN32.h
 //
-// $Id: //poco/1.4/Foundation/src/Mutex.cpp#2 $
+// $Id: //poco/1.4/Foundation/include/Poco/RWLock_WIN32.h#1 $
 //
 // Library: Foundation
 // Package: Threading
-// Module:  Mutex
+// Module:  RWLock
 //
-// Copyright (c) 2004-2008, Applied Informatics Software Engineering GmbH.
+// Definition of the RWLockImpl class for WIN32.
+//
+// Copyright (c) 2004-2006, Applied Informatics Software Engineering GmbH.
 // and Contributors.
 //
 // Permission is hereby granted, free of charge, to any person or organization
@@ -34,47 +36,44 @@
 //
 
 
-#include "Poco/Mutex.h"
+#ifndef Foundation_RWLock_WIN32_INCLUDED
+#define Foundation_RWLock_WIN32_INCLUDED
 
 
-#if defined(POCO_OS_FAMILY_WINDOWS)
-#if defined(_WIN32_WCE)
-#include "Mutex_WINCE.cpp"
-#else
-#if defined(WINAPI_FAMILY_PC_APP)
-#include "Mutex_WINRT.cpp"
-#else
-#include "Mutex_WIN32.cpp"
-#endif
-#endif
-#elif defined(POCO_VXWORKS)
-#include "Mutex_VX.cpp"
-#else
-#include "Mutex_POSIX.cpp"
-#endif
+#include "Poco/Foundation.h"
+#include "Poco/Exception.h"
+#include "Poco/UnWindows.h"
 
 
 namespace Poco {
 
 
-Mutex::Mutex()
+class Foundation_API RWLockImpl
 {
-}
+protected:
+	RWLockImpl();
+	~RWLockImpl();
+	void readLockImpl();
+	bool tryReadLockImpl();
+	void writeLockImpl();
+	bool tryWriteLockImpl();
+	void unlockImpl();
+	
+private:
+	void addWriter();
+	void removeWriter();
+	DWORD tryReadLockOnce();
 
-
-Mutex::~Mutex()
-{
-}
-
-
-FastMutex::FastMutex()
-{
-}
-
-
-FastMutex::~FastMutex()
-{
-}
+	HANDLE   _mutex;
+	HANDLE   _readEvent;
+	HANDLE   _writeEvent;
+	unsigned _readers;
+	unsigned _writersWaiting;
+	unsigned _writers;
+};
 
 
 } // namespace Poco
+
+
+#endif // Foundation_RWLock_WIN32_INCLUDED

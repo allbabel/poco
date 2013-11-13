@@ -45,7 +45,11 @@
 #if defined(_WIN32_WCE)
 #include "Thread_WINCE.cpp"
 #else
+#if defined(WINAPI_FAMILY_PC_APP)
+#include "Thread_WINRT.cpp"
+#else
 #include "Thread_WIN32.cpp"
+#endif
 #endif
 #elif defined(POCO_VXWORKS)
 #include "Thread_VX.cpp"

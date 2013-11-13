@@ -38,7 +38,11 @@
 
 
 #if defined(POCO_OS_FAMILY_WINDOWS) && defined(POCO_WIN32_UTF8)
+#if defined(WINAPI_FAMILY_PC_APP)
+#include "LogFile_WINRT.cpp"
+#else
 #include "LogFile_WIN32U.cpp"
+#endif
 #elif defined(POCO_OS_FAMILY_WINDOWS)
 #include "LogFile_WIN32.cpp"
 #elif defined(POCO_OS_FAMILY_VMS)

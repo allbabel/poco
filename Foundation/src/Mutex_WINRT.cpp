@@ -1,13 +1,13 @@
 //
-// Mutex.cpp
+// Mutex_WIN32.cpp
 //
-// $Id: //poco/1.4/Foundation/src/Mutex.cpp#2 $
+// $Id: //poco/1.4/Foundation/src/Mutex_WIN32.cpp#1 $
 //
 // Library: Foundation
 // Package: Threading
 // Module:  Mutex
 //
-// Copyright (c) 2004-2008, Applied Informatics Software Engineering GmbH.
+// Copyright (c) 2004-2006, Applied Informatics Software Engineering GmbH.
 // and Contributors.
 //
 // Permission is hereby granted, free of charge, to any person or organization
@@ -34,46 +34,47 @@
 //
 
 
-#include "Poco/Mutex.h"
-
-
-#if defined(POCO_OS_FAMILY_WINDOWS)
-#if defined(_WIN32_WCE)
-#include "Mutex_WINCE.cpp"
-#else
-#if defined(WINAPI_FAMILY_PC_APP)
-#include "Mutex_WINRT.cpp"
-#else
-#include "Mutex_WIN32.cpp"
-#endif
-#endif
-#elif defined(POCO_VXWORKS)
-#include "Mutex_VX.cpp"
-#else
-#include "Mutex_POSIX.cpp"
-#endif
+#include "Poco/Mutex_WINRT.h"
+#include "Poco/Timestamp.h"
 
 
 namespace Poco {
 
 
-Mutex::Mutex()
+MutexImpl::MutexImpl()
 {
+	// the fct has a boolean return value under WInnNt/2000/XP but not on Win98
+	// the return only checks if the input address of &_cs was valid, so it is safe to omit it
+	InitializeCriticalSectionAndSpinCount(&_cs, 4000);
 }
 
 
-Mutex::~Mutex()
+MutexImpl::~MutexImpl()
 {
+	DeleteCriticalSection(&_cs);
 }
 
 
-FastMutex::FastMutex()
+bool MutexImpl::tryLockImpl(long milliseconds)
 {
-}
-
-
-FastMutex::~FastMutex()
-{
+	const int sleepMillis = 5;
+	Timestamp now;
+	Timestamp::TimeDiff diff(Timestamp::TimeDiff(milliseconds)*1000);
+	do
+	{
+		try
+		{
+			if (TryEnterCriticalSection(&_cs) == TRUE)
+				return true;
+		}
+		catch (...)
+		{
+			throw SystemException("cannot lock mutex");
+		}
+		Sleep(sleepMillis);
+	}
+	while (!now.isElapsed(diff));
+	return false;
 }
 
 

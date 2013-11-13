@@ -1,13 +1,15 @@
 //
-// Mutex.cpp
+// Semaphore_WIN32.h
 //
-// $Id: //poco/1.4/Foundation/src/Mutex.cpp#2 $
+// $Id: //poco/1.4/Foundation/include/Poco/Semaphore_WIN32.h#1 $
 //
 // Library: Foundation
 // Package: Threading
-// Module:  Mutex
+// Module:  Semaphore
 //
-// Copyright (c) 2004-2008, Applied Informatics Software Engineering GmbH.
+// Definition of the SemaphoreImpl class for WIN32.
+//
+// Copyright (c) 2004-2006, Applied Informatics Software Engineering GmbH.
 // and Contributors.
 //
 // Permission is hereby granted, free of charge, to any person or organization
@@ -34,47 +36,45 @@
 //
 
 
-#include "Poco/Mutex.h"
+#ifndef Foundation_Semaphore_WIN32_INCLUDED
+#define Foundation_Semaphore_WIN32_INCLUDED
 
 
-#if defined(POCO_OS_FAMILY_WINDOWS)
-#if defined(_WIN32_WCE)
-#include "Mutex_WINCE.cpp"
-#else
-#if defined(WINAPI_FAMILY_PC_APP)
-#include "Mutex_WINRT.cpp"
-#else
-#include "Mutex_WIN32.cpp"
-#endif
-#endif
-#elif defined(POCO_VXWORKS)
-#include "Mutex_VX.cpp"
-#else
-#include "Mutex_POSIX.cpp"
-#endif
+#include "Poco/Foundation.h"
+#include "Poco/Exception.h"
+#include "Poco/UnWindows.h"
 
 
 namespace Poco {
 
 
-Mutex::Mutex()
+class Foundation_API SemaphoreImpl
 {
-}
+protected:
+	SemaphoreImpl(int n, int max);		
+	~SemaphoreImpl();
+	void setImpl();
+	void waitImpl();
+	bool waitImpl(long milliseconds);
+	
+private:
+	HANDLE _sema;
+};
 
 
-Mutex::~Mutex()
+//
+// inlines
+//
+inline void SemaphoreImpl::setImpl()
 {
-}
-
-
-FastMutex::FastMutex()
-{
-}
-
-
-FastMutex::~FastMutex()
-{
+	if (!ReleaseSemaphore(_sema, 1, NULL))
+	{
+		throw SystemException("cannot signal semaphore");
+	}
 }
 
 
 } // namespace Poco
+
+
+#endif // Foundation_Semaphore_WIN32_INCLUDED
