@@ -36,7 +36,9 @@
 
 #include "Poco/Mutex_WINRT.h"
 #include "Poco/Timestamp.h"
+#include <ThreadEmulation.h>
 
+using namespace ThreadEmulation;
 
 namespace Poco {
 

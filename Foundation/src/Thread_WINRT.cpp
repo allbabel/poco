@@ -38,7 +38,9 @@
 #include "Poco/Exception.h"
 #include "Poco/ErrorHandler.h"
 #include <process.h>
+#include <ThreadEmulation.h>
 
+using namespace ThreadEmulation;
 
 #if defined(POCO_WIN32_DEBUGGER_THREAD_NAMES)
 

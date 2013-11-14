@@ -35,7 +35,9 @@
 
 
 #include "Poco/RWLock_WINRT.h"
+#include <ThreadEmulation.h>
 
+using namespace ThreadEmulation;
 
 namespace Poco {
 

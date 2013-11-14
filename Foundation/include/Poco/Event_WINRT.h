@@ -44,7 +44,6 @@
 #include "Poco/Exception.h"
 #include "Poco/UnWindows.h"
 
-
 namespace Poco {
 
 
