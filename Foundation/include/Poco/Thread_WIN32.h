@@ -44,7 +44,6 @@
 #include "Poco/Runnable.h"
 #include "Poco/UnWindows.h"
 
-
 namespace Poco {
 
 

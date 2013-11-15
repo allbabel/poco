@@ -46,7 +46,7 @@ SemaphoreImpl::SemaphoreImpl(int n, int max)
 {
 	poco_assert (n >= 0 && max > 0 && n <= max);
 
-	_sema = CreateSemaphoreW(NULL, n, max, NULL);
+	_sema = CreateSemaphoreEx(nullptr, n, max, nullptr, 0, EVENT_ALL_ACCESS);
 	if (!_sema)
 	{
 		throw SystemException("cannot create semaphore");
@@ -62,7 +62,7 @@ SemaphoreImpl::~SemaphoreImpl()
 
 void SemaphoreImpl::waitImpl()
 {
-	switch (WaitForSingleObject(_sema, INFINITE))
+	switch (WaitForSingleObjectEx(_sema, INFINITE, FALSE))
 	{
 	case WAIT_OBJECT_0:
 		return;
@@ -74,7 +74,7 @@ void SemaphoreImpl::waitImpl()
 
 bool SemaphoreImpl::waitImpl(long milliseconds)
 {
-	switch (WaitForSingleObject(_sema, milliseconds + 1))
+	switch (WaitForSingleObjectEx(_sema, milliseconds + 1, FALSE))
 	{
 	case WAIT_TIMEOUT:
 		return false;

@@ -39,7 +39,6 @@
 #include "Poco/Exception.h"
 #include "Poco/ErrorHandler.h"
 
-
 namespace Poco {
 
 

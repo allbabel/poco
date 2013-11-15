@@ -45,7 +45,11 @@
 
 
 #if defined(POCO_OS_FAMILY_WINDOWS)
+#if defined(WINAPI_FAMILY_PC_APP)
+#include "Poco/Semaphore_WINRT.h"
+#else
 #include "Poco/Semaphore_WIN32.h"
+#endif
 #elif defined(POCO_VXWORKS)
 #include "Poco/Semaphore_VX.h"
 #else

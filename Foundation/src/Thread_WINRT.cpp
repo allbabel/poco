@@ -171,7 +171,7 @@ void ThreadImpl::joinImpl()
 {
 	if (!_thread) return;
 
-	switch (WaitForSingleObject(_thread, INFINITE))
+	switch (WaitForSingleObjectEx(_thread, INFINITE, FALSE))
 	{
 	case WAIT_OBJECT_0:
 		threadCleanup();
@@ -186,7 +186,7 @@ bool ThreadImpl::joinImpl(long milliseconds)
 {
 	if (!_thread) return true;
 
-	switch (WaitForSingleObject(_thread, milliseconds + 1))
+	switch (WaitForSingleObjectEx(_thread, milliseconds + 1, FALSE))
 	{
 	case WAIT_TIMEOUT:
 		return false;
@@ -204,7 +204,7 @@ bool ThreadImpl::isRunningImpl() const
 	if (_thread)
 	{
 		DWORD ec = 0;
-		return GetExitCodeThread(_thread, &ec) && ec == STILL_ACTIVE;
+		return true;// TODO GetExitCodeThread(_thread, &ec) && ec == STILL_ACTIVE;
 	}
 	return false;
 }

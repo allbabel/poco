@@ -43,7 +43,13 @@
 #include "Poco/Foundation.h"
 #include "Poco/Runnable.h"
 #include "Poco/UnWindows.h"
+#include <ThreadEmulation.h>
 
+#if !defined(TLS_OUT_OF_INDEXES) // Windows CE 5.x does not define this
+#define TLS_OUT_OF_INDEXES 0xFFFFFFFF
+#endif
+
+using namespace ThreadEmulation;
 
 namespace Poco {
 

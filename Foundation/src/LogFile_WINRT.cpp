@@ -90,7 +90,10 @@ UInt64 LogFileImpl::sizeImpl() const
 
 	LARGE_INTEGER li;
 	li.HighPart = 0;
-	li.LowPart  = SetFilePointer(_hFile, 0, &li.HighPart, FILE_CURRENT);
+	LARGE_INTEGER distance;
+	memset(&distance, 0, sizeof(LARGE_INTEGER));
+
+	li.LowPart  = SetFilePointerEx( _hFile, distance, &li, FILE_CURRENT);
 	return li.QuadPart;
 }
 
@@ -112,9 +115,15 @@ void LogFileImpl::createFile()
 	std::wstring upath;
 	UnicodeConverter::toUTF16(_path, upath);
 	
-	_hFile = CreateFileW(upath.c_str(), GENERIC_WRITE, FILE_SHARE_READ, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+	CREATEFILE2_EXTENDED_PARAMETERS params; // TODO - Anything to put in here
+	memset(&params, 0, sizeof(CREATEFILE2_EXTENDED_PARAMETERS));
+
+	_hFile = CreateFile2(upath.c_str(), GENERIC_WRITE, FILE_SHARE_READ, OPEN_ALWAYS, &params);
+	
 	if (_hFile == INVALID_HANDLE_VALUE) throw OpenFileException(_path);
-	SetFilePointer(_hFile, 0, 0, FILE_END);
+	LARGE_INTEGER distance;
+	memset(&distance, 0, sizeof(LARGE_INTEGER));
+	SetFilePointerEx(_hFile, distance, nullptr, FILE_END);
 	// There seems to be a strange "optimization" in the Windows NTFS
 	// filesystem that causes it to reuse directory entries of deleted
 	// files. Example:

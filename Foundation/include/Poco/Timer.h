@@ -46,7 +46,9 @@
 #include "Poco/Event.h"
 #include "Poco/Thread.h"
 #include "Poco/Timestamp.h"
+#include <ThreadEmulation.h>
 
+using namespace ThreadEmulation;
 
 namespace Poco {
 

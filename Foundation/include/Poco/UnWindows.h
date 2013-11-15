@@ -92,7 +92,9 @@
 #undef DecryptFile
 #undef CreateMutex
 #undef OpenMutex
+#ifndef WINAPI_FAMILY_PC_APP
 #undef CreateEvent
+#endif
 #undef OpenEvent
 #undef CreateSemaphore
 #undef OpenSemaphore

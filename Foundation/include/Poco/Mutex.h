@@ -49,7 +49,11 @@
 #if defined(_WIN32_WCE)
 #include "Poco/Mutex_WINCE.h"
 #else
+#if defined(WINAPI_FAMILY_PC_APP)
+#include "Poco/Mutex_WINRT.h"
+#else
 #include "Poco/Mutex_WIN32.h"
+#endif
 #endif
 #elif defined(POCO_VXWORKS)
 #include "Poco/Mutex_VX.h"

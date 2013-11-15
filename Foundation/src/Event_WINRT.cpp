@@ -35,27 +35,18 @@
 
 
 #include "Poco/Event_WINRT.h"
-#include <windows.h>
-#include <assert.h>
-#include <vector>
-#include <set>
-#include <map>
-#include <mutex>
 
 using namespace std;
 using namespace Platform;
 using namespace Windows::Foundation;
 using namespace Windows::System::Threading;
 
-
 namespace Poco {
 
 
 EventImpl::EventImpl(bool autoReset)
 {
-	HANDLE sleepEvent = CreateEventEx(nullptr, nullptr, CREATE_EVENT_MANUAL_RESET, EVENT_ALL_ACCESS);
-
-	_event = CreateEventW(NULL, autoReset ? FALSE : TRUE, FALSE, NULL);
+	_event = CreateEventEx(nullptr, nullptr, CREATE_EVENT_MANUAL_RESET, EVENT_ALL_ACCESS);
 	if (!_event)
 		throw SystemException("cannot create event");
 }
@@ -69,7 +60,7 @@ EventImpl::~EventImpl()
 
 void EventImpl::waitImpl()
 {
-	switch (WaitForSingleObject(_event, INFINITE))
+	switch (WaitForSingleObjectEx(_event, INFINITE, FALSE))
 	{
 	case WAIT_OBJECT_0:
 		return;
@@ -81,7 +72,7 @@ void EventImpl::waitImpl()
 
 bool EventImpl::waitImpl(long milliseconds)
 {
-	switch (WaitForSingleObject(_event, milliseconds + 1))
+	switch (WaitForSingleObjectEx(_event, milliseconds + 1, FALSE))
 	{
 	case WAIT_TIMEOUT:
 		return false;

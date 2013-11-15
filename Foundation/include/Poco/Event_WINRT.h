@@ -59,8 +59,7 @@ protected:
 	
 private:
 	HANDLE _event;
-	//std::condition_variable cv;
-	//bool _autoReset;
+	bool _autoReset;
 };
 
 
@@ -83,7 +82,6 @@ inline void EventImpl::resetImpl()
 		throw SystemException("cannot reset event");
 	}
 }
-
 
 } // namespace Poco
 
