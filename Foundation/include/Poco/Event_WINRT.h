@@ -59,6 +59,8 @@ protected:
 	
 private:
 	HANDLE _event;
+	//std::condition_variable cv;
+	//bool _autoReset;
 };
 
 

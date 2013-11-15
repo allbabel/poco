@@ -83,6 +83,9 @@
     <Filter Include="Threading\Source Files">
       <UniqueIdentifier>{3e2f2f12-95b6-401d-8fb9-017f84d3faa3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Threading\Emulation">
+      <UniqueIdentifier>{9983033d-d870-43a8-8be7-50cac8218798}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
@@ -405,6 +408,9 @@
     </ClCompile>
     <ClCompile Include="..\src\Timer.cpp">
       <Filter>Threading\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThreadEmulation\ThreadEmulation.cpp">
+      <Filter>Threading\Emulation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -983,10 +989,16 @@
     <ClInclude Include="..\include\Poco\Thread_WINRT.h">
       <Filter>Threading\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\ThreadEmulation\ThreadEmulation.h">
+      <Filter>Threading\Emulation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\src\pocomsg.mc">
       <Filter>Logging\Message Files</Filter>
+    </None>
+    <None Include="..\ThreadEmulation\Microsoft Permissive License.rtf">
+      <Filter>Threading\Emulation</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

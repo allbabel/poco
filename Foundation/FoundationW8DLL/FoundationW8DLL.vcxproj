@@ -121,7 +121,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;Foundation_EXPORTS;PCRE_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../include;$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../ThreadEmulation;../include;$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -375,6 +375,7 @@
     <ClInclude Include="..\include\Poco\Void.h" />
     <ClInclude Include="..\include\Poco\WindowsConsoleChannel.h" />
     <ClInclude Include="..\src\pocomsg.h" />
+    <ClInclude Include="..\ThreadEmulation\ThreadEmulation.h" />
     <ClInclude Include="FoundationW8DLL.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="targetver.h" />
@@ -540,6 +541,7 @@
     <ClCompile Include="..\src\VarIterator.cpp" />
     <ClCompile Include="..\src\Void.cpp" />
     <ClCompile Include="..\src\WindowsConsoleChannel.cpp" />
+    <ClCompile Include="..\ThreadEmulation\ThreadEmulation.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="FoundationW8DLL.cpp" />
     <ClCompile Include="pch.cpp">
@@ -555,6 +557,7 @@
     <None Include="..\src\pocomsg.mc">
       <FileType>Document</FileType>
     </None>
+    <None Include="..\ThreadEmulation\Microsoft Permissive License.rtf" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\src\pocomsg.rc" />

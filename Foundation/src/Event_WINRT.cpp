@@ -35,15 +35,26 @@
 
 
 #include "Poco/Event_WINRT.h"
-#include <ThreadEmulation.h>
+#include <windows.h>
+#include <assert.h>
+#include <vector>
+#include <set>
+#include <map>
+#include <mutex>
 
-using namespace ThreadEmulation;
+using namespace std;
+using namespace Platform;
+using namespace Windows::Foundation;
+using namespace Windows::System::Threading;
+
 
 namespace Poco {
 
 
 EventImpl::EventImpl(bool autoReset)
 {
+	HANDLE sleepEvent = CreateEventEx(nullptr, nullptr, CREATE_EVENT_MANUAL_RESET, EVENT_ALL_ACCESS);
+
 	_event = CreateEventW(NULL, autoReset ? FALSE : TRUE, FALSE, NULL);
 	if (!_event)
 		throw SystemException("cannot create event");
