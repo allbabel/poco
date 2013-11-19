@@ -53,7 +53,11 @@
 #if defined(_WIN32_WCE)
 #include "Path_WINCE.cpp"
 #else
+#if defined(WINAPI_FAMILY_PC_APP)
+#include "Path_WINRT.cpp"
+#else
 #include "Path_WIN32U.cpp"
+#endif
 #endif
 #elif defined(POCO_OS_FAMILY_WINDOWS)
 #include "Path_WIN32.cpp"

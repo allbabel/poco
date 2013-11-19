@@ -247,6 +247,7 @@
     <ClInclude Include="..\include\Poco\DirectoryIterator_VMS.h" />
     <ClInclude Include="..\include\Poco\DirectoryIterator_WIN32.h" />
     <ClInclude Include="..\include\Poco\DirectoryIterator_WIN32U.h" />
+    <ClInclude Include="..\include\Poco\DirectoryIterator_WINRT.h" />
     <ClInclude Include="..\include\Poco\DirectoryWatcher.h" />
     <ClInclude Include="..\include\Poco\DynamicAny.h" />
     <ClInclude Include="..\include\Poco\DynamicAnyHolder.h" />
@@ -289,6 +290,7 @@
     <ClInclude Include="..\include\Poco\File_VMS.h" />
     <ClInclude Include="..\include\Poco\File_WIN32.h" />
     <ClInclude Include="..\include\Poco\File_WIN32U.h" />
+    <ClInclude Include="..\include\Poco\File_WINRT.h" />
     <ClInclude Include="..\include\Poco\Format.h" />
     <ClInclude Include="..\include\Poco\Formatter.h" />
     <ClInclude Include="..\include\Poco\FormattingChannel.h" />
@@ -374,6 +376,7 @@
     <ClInclude Include="..\include\Poco\Path_VMS.h" />
     <ClInclude Include="..\include\Poco\Path_WIN32.h" />
     <ClInclude Include="..\include\Poco\Path_WIN32U.h" />
+    <ClInclude Include="..\include\Poco\Path_WINRT.h" />
     <ClInclude Include="..\include\Poco\PatternFormatter.h" />
     <ClInclude Include="..\include\Poco\Pipe.h" />
     <ClInclude Include="..\include\Poco\PipeImpl.h" />
@@ -560,6 +563,9 @@
     <ClCompile Include="..\src\DirectoryIterator_WIN32U.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\src\DirectoryIterator_WINRT.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\src\DirectoryWatcher.cpp" />
     <ClCompile Include="..\src\Environment.cpp" />
     <ClCompile Include="..\src\Environment_UNIX.cpp">
@@ -608,6 +614,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\src\File_WIN32U.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\File_WINRT.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\src\Format.cpp" />
@@ -723,6 +732,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\src\Path_WIN32U.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\Path_WINRT.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\src\PatternFormatter.cpp" />

@@ -34,8 +34,8 @@
 //
 
 
-#include "Poco/Path_WINRT.h"
-#include "Poco/Environment_WINRT.h"
+#include "Poco/Path_WIN32U.h"
+#include "Poco/Environment_WIN32.h"
 #include "Poco/UnicodeConverter.h"
 #include "Poco/Buffer.h"
 #include "Poco/Exception.h"

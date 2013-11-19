@@ -179,7 +179,7 @@ public:
 	WindowsDirectoryWatcherStrategy(DirectoryWatcher& owner):
 		DirectoryWatcherStrategy(owner)
 	{
-		_hStopped = CreateEventW(NULL, FALSE, FALSE, NULL);
+		_hStopped = CreateEventEx(nullptr, nullptr, CREATE_EVENT_MANUAL_RESET, EVENT_ALL_ACCESS);
 		if (!_hStopped)
 			throw SystemException("cannot create event");
 	}
@@ -228,7 +228,7 @@ public:
 				HANDLE h[2];
 				h[0] = _hStopped;
 				h[1] = hChange;
-				switch (WaitForMultipleObjects(2, h, FALSE, INFINITE))
+				switch (WaitForMultipleObjectsEx(2, h, TRUE, INFINITE, FALSE))
 				{
 				case WAIT_OBJECT_0:
 					stopped = true;

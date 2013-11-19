@@ -43,7 +43,11 @@
 #if defined(_WIN32_WCE)
 #include "File_WINCE.cpp"
 #else
+#if defined(WINAPI_FAMILY_PC_APP)
+#include "File_WINRT.cpp"
+#else
 #include "File_WIN32U.cpp"
+#endif
 #endif
 #elif defined(POCO_OS_FAMILY_WINDOWS)
 #include "File_WIN32.cpp"

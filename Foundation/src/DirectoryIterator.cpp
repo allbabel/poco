@@ -38,7 +38,11 @@
 
 
 #if defined(POCO_OS_FAMILY_WINDOWS) && defined(POCO_WIN32_UTF8)
+#if defined(WINAPI_FAMILY_PC_APP)
+#include "DirectoryIterator_WINRT.cpp"
+#else
 #include "DirectoryIterator_WIN32U.cpp"
+#endif
 #elif defined(POCO_OS_FAMILY_WINDOWS)
 #include "DirectoryIterator_WIN32.cpp"
 #elif defined(POCO_OS_FAMILY_UNIX)
